@@ -1,0 +1,83 @@
+.routes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(221, 221, 221);
+
+
+    &__header {
+        margin-left: 25px;
+    }
+
+    &__main {
+        height: 500px;
+    }
+
+    &__grid-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        background-color: rgb(221, 221, 221);
+    }
+
+    &__grid-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    &__grid-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 40px;
+        border-bottom: 1px solid rgb(221, 221, 221);
+    }
+
+    &__list {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    &__footer {
+        width: 100%;
+        height: 80px;
+    }
+
+    &__pagination {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+    }
+
+    &__pages {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        width: 500px;
+    }
+
+    &__pages-item {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgb(224, 228, 228);
+        border: 3px solid transparent;
+        width: 27px;
+        height: 27px;
+    }
+
+    &__pages-item--active {
+        border: 3px solid rgb(133, 136, 136);
+    }
+
+
+
+}
