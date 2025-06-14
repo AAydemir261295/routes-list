@@ -41,15 +41,11 @@ export class RoutesList {
         this.routes = this.routesApi.getItems();
     }
 
-    resetPage() {
-        this.range[0] = 0;
-        this.range[1] = 9;
-    }
-
 
     changePage(pageNumb: number) {
         this.range[0] = pageNumb == 1 ? pageNumb - 1 : pageNumb * 10;
         this.range[1] = this.range[0] + 9;
+        this.activePage = pageNumb;
     }
 
 
@@ -73,6 +69,7 @@ export class RoutesList {
 
     sortAddressAsc(a: Routee, b: Routee) {
         var tmp = this.prepareAddress(a.address, b.address);
+        console.log(tmp);
         return tmp[0] - tmp[1];
     }
 
@@ -97,7 +94,7 @@ export class RoutesList {
 
 
     sortByAddress() {
-        this.resetPage();
+        this.changePage(1);
         this.byGateway.sortType = "";
         this.byInterface.sortType = "";
         if (this.byAddress.sortType == "" || this.byAddress.sortType == "desc") {
@@ -112,7 +109,7 @@ export class RoutesList {
     }
 
     sortByGateway() {
-        this.resetPage();
+        this.changePage(1);
         this.byAddress.sortType = "";
         this.byInterface.sortType = "";
         if (this.byGateway.sortType == "" || this.byGateway.sortType == "desc") {
@@ -128,7 +125,7 @@ export class RoutesList {
     }
 
     sortByInterface() {
-        this.resetPage();
+        this.changePage(1);
         this.byAddress.sortType = "";
         this.byGateway.sortType = "";
         if (this.byInterface.sortType == "" || this.byInterface.sortType == "desc") {

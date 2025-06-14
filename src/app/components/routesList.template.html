@@ -43,7 +43,7 @@
                 @for (pageNumb of pageNumbs; track $index; let idx = $index) {
                 <!-- <ng-container *ngFor="let pageNumb of pageNumbs; index as i"> -->
                 <li [ngClass]="{'routes-container__pages-item': true, 'routes-container__pages-item--active': idx + 1 == activePage}"
-                    (click)="changePage(pageNumb); activePage = pageNumb">
+                    (click)="changePage(pageNumb);">
                     <span class="routes-container__page">{{pageNumb}}</span>
                 </li>
                 }
