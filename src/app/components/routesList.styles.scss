@@ -18,6 +18,38 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         background-color: rgb(221, 221, 221);
+        height: 60px;
+    }
+
+    &__grid-column-title {
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__grid-column-sort-asc::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid rgb(133, 136, 136);
+        margin-right: 20px;
+        vertical-align: middle;
+    }
+
+    &__grid-column-sort-desc::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid rgb(133, 136, 136);
+        margin-right: 20px;
+        vertical-align: middle;
     }
 
     &__grid-content {
