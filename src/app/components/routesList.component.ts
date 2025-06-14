@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { RoutesService } from "./routesService.service";
+import { RoutesService } from "./routesList.service";
 import { Routee } from "./routee.interface";
 import { NgClass, NgFor, NgIf } from "@angular/common";
 
