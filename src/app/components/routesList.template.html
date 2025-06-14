@@ -5,29 +5,44 @@
         </header>
         <main class="routes-container__main">
             <header class="routes-container__grid-header">
-                <h3 class="routes-container__grid-column-titile">Адрес назначения</h3>
-                <h3 class="routes-container__grid-column-titile">Шлюз</h3>
-                <h3 class="routes-container__grid-column-titile">Интерфейс</h3>
+                <h3 (click)="sortByAddress()" [ngClass]="{'routes-container__grid-column-title': true,
+                     'routes-container__grid-column-sort-asc': byAddress.sortType == 'asc',
+                     'routes-container__grid-column-sort-desc': byAddress.sortType == 'desc'}">
+                    Адрес назначения
+                </h3>
+                <h3 (click)="sortByGateway()" [ngClass]="{'routes-container__grid-column-title': true,
+                     'routes-container__grid-column-sort-asc': byGateway.sortType == 'asc',
+                     'routes-container__grid-column-sort-desc': byGateway.sortType == 'desc'}">
+                    Шлюз
+                </h3>
+                <h3 (click)="sortByInterface()" [ngClass]="{'routes-container__grid-column-title': true,
+                     'routes-container__grid-column-sort-asc': byInterface.sortType == 'asc',
+                     'routes-container__grid-column-sort-desc': byInterface.sortType == 'desc'}">
+                    Интерфейс
+                </h3>
             </header>
             <ul class="routes-container__grid-content nostyle-list">
                 <ng-container *ngFor="let item of routes; index as i;">
-                    <li class="routes-container__grid-item">
-                        {{item.address}}
-                    </li>
-                    <li class="routes-container__grid-item">
-                        {{item.gateway}}
-                    </li>
-                    <li class="routes-container__grid-item">
-                        {{item.interface}}
-                    </li>
+                    <ng-container *ngIf="i >= range[0] && i <= range[1]">
+                        <li class="routes-container__grid-item">
+                            {{item.address}}
+                        </li>
+                        <li class="routes-container__grid-item">
+                            {{item.gateway}}
+                        </li>
+                        <li class="routes-container__grid-item">
+                            {{item.interface}}
+                        </li>
+                    </ng-container>
                 </ng-container>
             </ul>
         </main>
         <footer class="routes-container__pagination">
             <ul class="routes-container__pages nostyle-list">
 
-                <ng-container *ngFor="let pageNumb of pageNumbs">
-                    <li class="routes-container__pages-item">
+                <ng-container *ngFor="let pageNumb of pageNumbs; index as i">
+                    <li [ngClass]="{'routes-container__pages-item': true, 'routes-container__pages-item--active': i + 1 == activePage}"
+                        (click)="changePage(pageNumb); activePage = pageNumb">
                         <span class="routes-container__page">{{pageNumb}}</span>
                     </li>
                 </ng-container>
